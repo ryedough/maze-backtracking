@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/maze-backtracking/static/css/main.fa5eb4b8.css",
+    "main.js": "/maze-backtracking/static/js/main.55959030.js",
+    "index.html": "/maze-backtracking/index.html",
+    "main.fa5eb4b8.css.map": "/maze-backtracking/static/css/main.fa5eb4b8.css.map",
+    "main.55959030.js.map": "/maze-backtracking/static/js/main.55959030.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa5eb4b8.css",
+    "static/js/main.55959030.js"
+  ]
+}
