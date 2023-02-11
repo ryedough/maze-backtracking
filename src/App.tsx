@@ -87,13 +87,13 @@ function App() {
             {row.map((block, y)=>{
               return <>
               <div key={(x*col)+y}
-                className={"w-12 h-12 bg-gray-200 inline-block border-4 relative group select-none"
+                className={"w-12 h-12 inline-block border-4 relative group select-none"
                 + (block.top ? " border-t-gray-300 " : " border-t-black ")
                 + (block.left ? " border-l-gray-300 " : " border-l-black ")
                 + (block.right ? " border-r-gray-300 " : " border-r-black ")
                 + (block.bottom ? " border-b-gray-300 " : " border-b-black ")
-                + (start == (x*col)+y ? " bg-blue-500 " : '')
-                + (finish == (x*col)+y ? " bg-green-500 " : '')}
+                + (start == (x*col)+y ? " bg-blue-500 " : ' bg-gray-200 ')
+                + (finish == (x*col)+y ? " bg-green-500 " : ' bg-gray-200 ')}
               >
                 <div className='w-full h-full'
                 onClick={(e)=>{setStart((x*col)+y)}}
