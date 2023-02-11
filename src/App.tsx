@@ -92,8 +92,8 @@ function App() {
                 + (block.left ? " border-l-gray-300 " : " border-l-black ")
                 + (block.right ? " border-r-gray-300 " : " border-r-black ")
                 + (block.bottom ? " border-b-gray-300 " : " border-b-black ")
-                + (start === (x*col)+y && " bg-blue-500 ")
-                + (finish === (x*col)+y && " bg-green-500 ")}
+                + (start == (x*col)+y ? " bg-blue-500 " : '')
+                + (finish == (x*col)+y ? " bg-green-500 " : '')}
               >
                 <div className='w-full h-full'
                 onClick={(e)=>{setStart((x*col)+y)}}
