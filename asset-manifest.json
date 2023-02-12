@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/maze-backtracking/static/css/main.5891bce7.css",
-    "main.js": "/maze-backtracking/static/js/main.00ca1fd6.js",
+    "main.js": "/maze-backtracking/static/js/main.212aeba9.js",
     "index.html": "/maze-backtracking/index.html",
     "main.5891bce7.css.map": "/maze-backtracking/static/css/main.5891bce7.css.map",
-    "main.00ca1fd6.js.map": "/maze-backtracking/static/js/main.00ca1fd6.js.map"
+    "main.212aeba9.js.map": "/maze-backtracking/static/js/main.212aeba9.js.map"
   },
   "entrypoints": [
     "static/css/main.5891bce7.css",
-    "static/js/main.00ca1fd6.js"
+    "static/js/main.212aeba9.js"
   ]
 }
