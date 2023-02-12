@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MazeBlock from '../class/MazeBlock';
-type direction = 'top'|'left'|'right'|'bottom';
-const DIRECTION : direction[] = ['top', 'left', 'right', 'bottom']
+type direction = 'top'|'right'|'bottom'|'left';
+const DIRECTION : direction[] = ['top', 'right', 'bottom', 'left']
 
 //note for [number, direction] tuple, symbolize = [current route , from which direction]
 //TODO: fix when index 0 cannot become candidate
@@ -66,18 +66,12 @@ function useSolve(blocks : MazeBlock[], setBlocks : React.Dispatch<React.SetStat
       return candidate;
     }
 
-    // const printRoute = ()=>{
-    //   routes.forEach((route)=>{
-    //     let route2d = Array(row).fill(0).map(()=>Array(col).fill(0));
-    //     route.forEach((r)=>{
-    //       route2d[Math.floor(r[0]/col)][r[0]%col] = 1;
-    //     })
-    //     console.log(route2d);
-    //   });
-    // }
-    // useEffect(()=>{
-    //     printRoute();
-    // }, [routes])
+    
+    useEffect(()=>{
+        routes.forEach((route, index)=>{
+          console.log(route);
+        })
+    }, [routes])
 
     const solver = ()=>{
         flag.current = false;
@@ -89,36 +83,28 @@ function useSolve(blocks : MazeBlock[], setBlocks : React.Dispatch<React.SetStat
     }
 
     const solve = (index : number)=>{
-      const candidates = getCandidate(index);
+      const candidates = getCandidate(index).reverse();
 
       visited.current[index] = true;
 
-      if(index === finish || flag.current){
-        if(index === finish){
-          routesRef.current.push([...routeRef.current]);
-        }
-
-        if(routesRef.current.length === maxRoute){
+      if(index === finish){
+        routesRef.current.push([...routeRef.current]);
+        console.log(routesRef.current.length, maxRoute);
+        if(routesRef.current.length === maxRoute)
           flag.current = true;
-        return
-       }
       }
-
-      candidates.forEach((candidate)=>{
-        if(flag.current)
-            return
-            
-        routeRef.current.push(candidate);
-        solve(candidate[0]);
-
-        if(flag.current)
-            return
-        
-        routeRef.current.pop();
-      })
 
       if(flag.current)
         return
+
+      while(candidates.length > 0 && !flag.current){
+        let candidate = candidates.pop()!;
+        routeRef.current.push(candidate);
+        solve(candidate[0]);
+
+        routeRef.current.pop();
+      }
+
       visited.current[index] = false;
     }
 
