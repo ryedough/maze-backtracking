@@ -66,13 +66,6 @@ function useSolve(blocks : MazeBlock[], setBlocks : React.Dispatch<React.SetStat
       return candidate;
     }
 
-    
-    useEffect(()=>{
-        routes.forEach((route, index)=>{
-          console.log(route);
-        })
-    }, [routes])
-
     const solver = ()=>{
         flag.current = false;
         routeRef.current = [];
@@ -89,7 +82,6 @@ function useSolve(blocks : MazeBlock[], setBlocks : React.Dispatch<React.SetStat
 
       if(index === finish){
         routesRef.current.push([...routeRef.current]);
-        console.log(routesRef.current.length, maxRoute);
         if(routesRef.current.length === maxRoute)
           flag.current = true;
       }
